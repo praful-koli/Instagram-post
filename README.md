@@ -90,8 +90,20 @@ npm run build
 ---
 
 ## 🖥️ Screenshots
+#Feed page
+<img width="1902" height="911" alt="image" src="https://github.com/user-attachments/assets/87a301d9-0663-4014-a53b-2963a1e734fa" />
 
-> _Add your screenshots here_
+#Create post 
+<img width="1342" height="668" alt="image" src="https://github.com/user-attachments/assets/56f1352b-61de-4621-aff3-ed8265f652c8" />
+
+#Create post file data 
+<img width="1133" height="847" alt="image" src="https://github.com/user-attachments/assets/783a9a5d-6f10-43bc-97e2-6c59058ab00a" />
+
+#Delete and Update
+<img width="692" height="866" alt="image" src="https://github.com/user-attachments/assets/66a6300b-d1cb-4103-93d5-f1029cba8ed6" />
+
+
+
 
 ---
 
