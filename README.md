@@ -61,7 +61,7 @@ post/
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/postify.git
+git clone https://github.com/praful-koli/Instagram-post.git
 cd postify
 ```
 
