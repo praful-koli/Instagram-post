@@ -100,7 +100,8 @@ npm run build
 <img width="1133" height="847" alt="image" src="https://github.com/user-attachments/assets/783a9a5d-6f10-43bc-97e2-6c59058ab00a" />
 
 #Delete and Update
-<img width="692" height="866" alt="image" src="https://github.com/user-attachments/assets/66a6300b-d1cb-4103-93d5-f1029cba8ed6" />
+<img width="1914" height="890" alt="image" src="https://github.com/user-attachments/assets/1b0c8795-ff44-4ed7-bd38-0dfa8617ab88" />
+
 
 
 
