@@ -1,0 +1,406 @@
+@import "../../../shared/variables";
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modal {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  animation: up 0.2s ease;
+}
+
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid $border;
+  position: relative;
+  h2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    font-weight: 700;
+    color: $text-primary;
+    white-space: nowrap;
+  }
+}
+
+.modal-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $text-secondary;
+  font-size: 18px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  &:hover {
+    background: $surface-2;
+    color: $text-primary;
+  }
+}
+
+.modal-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal-tabs {
+  display: flex;
+  gap: 4px;
+  background: $surface-2;
+  border-radius: 8px;
+  padding: 3px;
+}
+.modal-tab {
+  flex: 1;
+  padding: 8px 6px;
+  border: none;
+  background: none;
+  border-radius: 6px;
+  color: $text-muted;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  &.active {
+    background: $surface-3;
+    color: $text-primary;
+  }
+}
+
+.modal-drop {
+  border: 2px dashed $border;
+  border-radius: 10px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+  &:hover,
+  &.drag {
+    border-color: $accent;
+    background: rgba(0, 149, 246, 0.04);
+  }
+  &.filled {
+    border-style: solid;
+  }
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.modal-drop-hint {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.modal-drop-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-secondary;
+}
+.modal-drop-sub {
+  font-size: 12px;
+  color: $text-muted;
+  margin-top: 4px;
+}
+
+.modal-url {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.modal-url-row {
+  display: flex;
+  gap: 8px;
+  input {
+    flex: 1;
+    background: $surface-2;
+    border: 1px solid $border;
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: $text-primary;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    &::placeholder {
+      color: $text-muted;
+    }
+    &:focus {
+      border-color: $accent;
+    }
+  }
+  button {
+    background: $accent;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    &:hover {
+      background: $accent-hover;
+    }
+  }
+}
+.modal-err {
+  font-size: 12px;
+  color: #ff4d4d;
+}
+.modal-url-preview {
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid $border;
+  img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+  button {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 3px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    &:hover {
+      background: rgba(255, 77, 77, 0.8);
+    }
+  }
+}
+.modal-url-hint {
+  font-size: 12px;
+  color: $text-muted;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+.modal-sample {
+  aspect-ratio: 1;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  background: $surface-2;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  &.active {
+    border-color: $accent;
+    img {
+      opacity: 0.7;
+    }
+  }
+}
+.modal-check {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.modal-next {
+  background: $accent;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  &:hover:not(:disabled) {
+    background: $accent-hover;
+  }
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+}
+
+.modal-preview {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  label {
+    font-size: 11px;
+    font-weight: 700;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  input,
+  textarea {
+    background: $surface-2;
+    border: 1px solid $border;
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: $text-primary;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    resize: none;
+    transition: border-color 0.2s;
+    &::placeholder {
+      color: $text-muted;
+    }
+    &:focus {
+      border-color: $accent;
+    }
+  }
+}
+.modal-count {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 11px;
+  color: $text-muted;
+}
+
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.modal-tag {
+  background: $surface-2;
+  border: 1px solid $border;
+  border-radius: 16px;
+  padding: 5px 12px;
+  color: $text-secondary;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  &:hover {
+    border-color: $accent;
+    color: $accent;
+  }
+  &.active {
+    background: rgba(0, 149, 246, 0.12);
+    border-color: $accent;
+    color: $accent;
+  }
+}
+
+.modal-foot {
+  display: flex;
+  gap: 8px;
+  padding: 14px 16px;
+  border-top: 1px solid $border;
+}
+.modal-cancel {
+  flex: 1;
+  background: $surface-2;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 11px;
+  color: $text-secondary;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  &:hover {
+    background: $surface-3;
+  }
+}
+.modal-submit {
+  flex: 2;
+  background: $accent;
+  border: none;
+  border-radius: 8px;
+  padding: 11px;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  &:hover:not(:disabled) {
+    background: $accent-hover;
+  }
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
