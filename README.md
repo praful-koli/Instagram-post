@@ -62,7 +62,7 @@ post/
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/praful-koli/Instagram-post.git
-cd postify
+cd post
 ```
 
 ### 2. Install dependencies
